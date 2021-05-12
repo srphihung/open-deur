@@ -213,9 +213,7 @@ ul {
       }
   }
   &__body {
-      padding: 1.5rem 2rem;
-      border-top: 1px solid #ccc;
-      border-bottom: 1px solid #ccc;
+      padding: 0;
       &--days {
           display: flex;
           justify-content: space-between;
@@ -275,12 +273,6 @@ ul {
                   background: #00A1E1;
               }
           }
-          // .circle.purple {
-          //     border-color: purple;
-          //     span {
-          //         background: purple;
-          //     }
-          // }
       }
   }
   &__footer {
@@ -298,6 +290,17 @@ ul {
           display: grid;
           place-items: center;
       }
+  }
+  .fc .fc-toolbar.fc-header-toolbar {
+    margin-bottom: 1.5em;
+    margin-top: 1.5em;
+    padding: 0 1.5em;
+  }
+  .fc-toolbar-title {
+    color: #00A1E1;
+  }
+  .fc-theme-standard td, .fc-theme-standard th {
+    color: #3b3b3b;
   }
 }
 
