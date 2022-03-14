@@ -36,86 +36,28 @@
      new WOW().init();
    </script>
    <script>
-
-document.addEventListener('DOMContentLoaded', function() {
-    var calendarEl = document.getElementById('calendar');
-
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-      initialDate: '2020-09-12',
-      initialView: 'timeGridWeek',
-      nowIndicator: true,
-      headerToolbar: {
-        left: 'prev,next today',
-        center: 'title',
-        right: 'dayGridMonth,timeGridWeek,timeGridDay'
-      },
-      navLinks: true, // can click day/week names to navigate views
-      editable: true,
-      selectable: true,
-      selectMirror: true,
-      dayMaxEvents: true, // allow "more" link when too many events
-      events: [
-        {
-          title: 'All Day Event',
-          start: '2020-09-01',
-        },
-        {
-          title: 'Long Event',
-          start: '2020-09-07',
-          end: '2020-09-10'
-        },
-        {
-          groupId: 999,
-          title: 'Repeating Event',
-          start: '2020-09-09T16:00:00'
-        },
-        {
-          groupId: 999,
-          title: 'Repeating Event',
-          start: '2020-09-16T16:00:00'
-        },
-        {
-          title: 'Conference',
-          start: '2020-09-11',
-          end: '2020-09-13'
-        },
-        {
-          title: 'Meeting',
-          start: '2020-09-12T10:30:00',
-          end: '2020-09-12T12:30:00'
-        },
-        {
-          title: 'Lunch',
-          start: '2020-09-12T12:00:00'
-        },
-        {
-          title: 'Meeting',
-          start: '2020-09-12T14:30:00'
-        },
-        {
-          title: 'Happy Hour',
-          start: '2020-09-12T17:30:00'
-        },
-        {
-          title: 'Dinner',
-          start: '2020-09-12T20:00:00'
-        },
-        {
-          title: 'Birthday Party',
-          start: '2020-09-13T07:00:00'
-        },
-        {
-          title: 'Click for Google',
-          url: 'http://google.com/',
-          start: '2020-09-28'
-        }
-      ]
-    });
-
-    calendar.render();
-  });
-
-  </script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          // Welke calender
+          initialView: 'timeGridWeek',
+          // Huidige datum en tijd
+          nowIndicator: true,
+          // Dit zijn de elementen in de header van links naar rechts
+          headerToolbar: {
+            left: 'prev, next today',
+            center: 'title',
+            right: 'dayGridMonth,timeGridWeek,timeGridDay'
+          },
+          navLinks: true, // Dag/week klikbaar maken
+          editable: false, // 
+          selectable: false, // 
+          selectMirror: false, // Het slepen van een event in de cels
+          dayMaxEvents: true, // allow "more" link when too many events
+        });
+        calendar.render();
+      });
+    </script>
 </head>
 
 <body>
@@ -164,50 +106,6 @@ document.addEventListener('DOMContentLoaded', function() {
             <span class="sr-only">Next</span>
           </a>
         </div>
-      
-        <!---/Carousel-->
-    
-        <!--Card carousel-->
-        
-        <div class="card-group" id="card-body">
-          <div class="align-items-center d-flex">
-          <button type="button-arrow" class="btn btn-outline-primary" id="arrow-buttons">
-            <i class="fas fa-arrow-left"></i>
-          </button>
-        </div>
-          <div class="card">
-            <img class="card-img-top"
-            src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg" alt="Test card">
-            <div class="card-body" id="black-text">
-              <h5 class="card-title">Whiii</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card-img-top"
-            src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg" alt="Test card">
-            <div class="card-body" id="black-text">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card-img-top"
-            src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg" alt="Test card">
-            <div class="card-body" id="black-text">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-            </div>
-            <div class="align-items-center d-flex">
-          <button type="button-arrow" class="btn btn-outline-primary" id="arrow-buttons">
-              <i class="fas fa-arrow-right"></i>
-          </button>
-        </div>
-        </div>
 
         <!---/Card Carousel-->
         <div class="card">
@@ -215,16 +113,15 @@ document.addEventListener('DOMContentLoaded', function() {
             <div id='calendar'></div>
           </section>
           <div class="card__footer d-flex justify-content-center">
-            <a href="#agenda-modal" class="add" data-toggle="modal">+</a>
+            <a href="#" class="add" data-toggle="modal">+</a>
           </div>
 
-          <div class="agenda-modal modal fade" id="agenda-modal" tabindex="-1" role="dialog" aria-hidden="true">
+          <!-- <div class="agenda-modal modal fade" id="agenda-modal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content">
                   <div class="row">
                     <div class="col-lg-12 mx-auto">
                       <div class="modal-body">
-                        <!-- Project Details Go Here -->
                         <div class="container">
                           <div class="row">
                             <div class="col-md-12 text-center">
@@ -274,7 +171,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   </div>
               </div>
             </div>
-          </div>
+          </div> -->
 
         </div>
 
